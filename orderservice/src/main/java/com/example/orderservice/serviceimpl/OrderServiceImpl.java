@@ -7,16 +7,16 @@ import com.example.orderservice.dto.UserExistResponsedto;
 import com.example.orderservice.model.OrderDetail;
 import com.example.orderservice.repository.OrderRepository;
 import com.example.orderservice.service.OrderService;
-import com.example.orderservice.service.UserClient;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
-    private final UserClient userClient;
+    private final UserClientService userClientService;
     @Override
     public OrderResponsedto placeOrder(OrderRequestdto orderRequestdto) {
         //Order order = new Order();
@@ -30,7 +30,8 @@ public class OrderServiceImpl implements OrderService {
         // Before saving the order check userExist or not
         UserExistRequestdto userExistRequestdto = new UserExistRequestdto();
         userExistRequestdto.setUserId(orderRequestdto.getUserId());
-        UserExistResponsedto userExistResponsedto = userClient.userExist(userExistRequestdto);
+        //UserExistResponsedto userExistResponsedto = userClient.userExist(userExistRequestdto);
+        UserExistResponsedto userExistResponsedto = userClientService.getUser(userExistRequestdto);
         if (userExistResponsedto==null){
             throw new RuntimeException("User not found please register the user then place the order");
         }
