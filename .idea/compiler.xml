@@ -20,13 +20,14 @@
         <module name="cloudconfig" />
         <module name="eureka" />
       </profile>
-      <profile name="Annotation profile for productservice" enabled="true">
+      <profile name="Annotation profile for notificationservice" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
+        <module name="notificationservice" />
         <module name="productservice" />
         <module name="userservice" />
       </profile>
@@ -37,6 +38,7 @@
       <module name="apigateway" options="-parameters" />
       <module name="cloudconfig" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="notificationservice" options="-parameters" />
       <module name="orderservice" options="-parameters" />
       <module name="productservice" options="-parameters" />
       <module name="userservice" options="-parameters" />
