@@ -1,6 +1,6 @@
 package com.example.notificationservice.service;
 
-import com.example.notificationservice.OrderEventDTO.OrderEventDTO;
+import com.example.notificationservice.ordereventdto.OrderEventDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;

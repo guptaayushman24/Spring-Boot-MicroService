@@ -1,4 +1,4 @@
-package com.example.notificationservice.OrderEventDTO;
+package com.example.notificationservice.ordereventdto;
 
 import lombok.Data;
 
