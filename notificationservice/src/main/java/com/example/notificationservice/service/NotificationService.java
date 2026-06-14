@@ -8,11 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class NotificationService {
-    @KafkaListener(topics="order-placed",
-            groupId="notification-group")
+
+    @KafkaListener(topics="order-placed", groupId="notification-group")
     public void handleOrderPlaced(OrderEventDTO evt) {
         log.info("EMAIL → User {} | Order {} | ₹{}",
                 evt.getUserId(), evt.getOrderId(), evt.getAmount());
-        // in real app: emailService.send(...)
     }
 }
