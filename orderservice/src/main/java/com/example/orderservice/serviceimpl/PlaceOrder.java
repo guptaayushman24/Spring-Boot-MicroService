@@ -28,5 +28,8 @@ public class PlaceOrder {
             throw new RuntimeException("Out Of Stock !!!!");
         }
 
+        // Place the Order reduce the stock from the Product Table
+
+
     }
 }
